@@ -21,13 +21,24 @@
             console.log('Perdimos comunicación con el servidor');
         });
 
-
-        socket.emit('mensaje', { nombre: 'Fernando' } );
+        // socket.emit('mensaje', { nombre: 'Fernando' });
 
         socket.on('mensaje', function( payload ){
             console.log('Escuhando:', payload );
         });
 
+        socket.on('emitir-mensaje', function( payload ){
+            console.log('Mensaje:', payload );
+        });
+
+        socket.on('nuevo-mensaje', function( payload ){
+            console.log('Datos:', payload );
+        });
+
+        socket.on('active-bands', function( payload ) {
+            console.clear();
+            console.table(payload);
+        });
 
     </script>
 
